@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Insights Generator</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="./public/Think Finance.png" alt="ThinkFinance logo" class="logo">
+             <h1>ThinkFinance</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active" id="nav-dashboard">Dashboard</a></li>
+                <li><a href="#" id="nav-upload">Upload Data</a></li>
+                <li><a href="#" id="nav-coach">Financial Coach</a></li>
+            </ul>
+        </nav>
+        <div class="user-profile">
+            <span>Welcome, User</span>
+            <div class="avatar">U</div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="active-section">
+            <div class="dashboard-header">
+                <h2>Financial Overview</h2>
+                <div class="date-filter">
+                    <select id="time-period">
+                        <option value="7d">Last 7 Days</option>
+                        <option value="30d" selected>Last 30 Days</option>
+                        <option value="90d">Last Quarter</option>
+                        <option value="12m">Last Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="metrics-container">
+                <div class="metric-card">
+                    <h3>Total Revenue</h3>
+                    <p class="metric-value">$124,568</p>
+                    <p class="metric-change positive">↑ 12% from last period</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Expenses</h3>
+                    <p class="metric-value">$78,342</p>
+                    <p class="metric-change negative">↑ 8% from last period</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Profit</h3>
+                    <p class="metric-value">$46,226</p>
+                    <p class="metric-change positive">↑ 18% from last period</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Anomalies Detected</h3>
+                    <p class="metric-value">14</p>
+                    <p class="metric-change neutral">↓ 2 from last period</p>
+                </div>
+            </div>
+
+            <div class="charts-container">
+                <div class="chart-card">
+                    <h3>Revenue Trend</h3>
+                    <canvas id="revenue-chart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Expense Breakdown</h3>
+                    <canvas id="expense-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="anomaly-section">
+                <h3>Anomaly Heatmap</h3>
+                <div class="heatmap-container">
+                    <div class="heatmap" id="anomaly-heatmap"></div>
+                    <div class="heatmap-legend">
+                        <span>Low</span>
+                        <div class="legend-gradient"></div>
+                        <span>High</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insights-section">
+                <h3>AI-Generated Insights</h3>
+                <div class="insights-container">
+                    <div class="insight-card">
+                        <div class="insight-icon">💡</div>
+                        <div class="insight-content">
+                            <h4>Spike in Marketing Expenses</h4>
+                            <p>Your marketing expenses increased by 45% this month compared to the 3-month average. This correlates with a 22% increase in new customer acquisition.</p>
+                            <button class="action-button">View Details</button>
+                        </div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-icon">⚠️</div>
+                        <div class="insight-content">
+                            <h4>Irregular Payment Detected</h4>
+                            <p>An unusually large payment to vendor "Tech Solutions Inc" was detected on 15th. Verify if this was an error or expected transaction.</p>
+                            <button class="action-button">Review Transaction</button>
+                        </div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-icon">📈</div>
+                        <div class="insight-content">
+                            <h4>Opportunity: Cash Reserves</h4>
+                            <p>Your cash reserves exceed operational needs by 32%. Consider short-term investments to improve returns on idle funds.</p>
+                            <button class="action-button">See Options</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gamification-section">
+                <h3>Your Financial Achievements</h3>
+                <div class="badges-container">
+                    <div class="badge earned">
+                        <div class="badge-icon">🥇</div>
+                        <p>Early Analyzer</p>
+                    </div>
+                    <div class="badge earned">
+                        <div class="badge-icon">💰</div>
+                        <p>Cost Saver</p>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">🔍</div>
+                        <p>Anomaly Hunter</p>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-icon">📅</div>
+                        <p>30-Day Streak</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Section -->
+        <section id="upload-section">
+            <div class="upload-container">
+                <h2>Upload Financial Data</h2>
+                <p>Upload your CSV, Excel, or JSON files to generate insights</p>
+                
+                <div class="upload-area" id="drop-zone">
+                    <div class="upload-icon">
+                        <img src="./images/upload-icon.svg" alt="Upload">
+                    </div>
+                    <p>Drag & Drop your files here or</p>
+                    <input type="file" id="file-input" accept=".csv,.xlsx,.json">
+                    <label for="file-input" class="browse-button">Browse Files</label>
+                    <div class="file-requirements">
+                        <p>Supported formats: CSV, Excel, JSON</p>
+                        <p>Max file size: 10MB</p>
+                    </div>
+                </div>
+                
+                <div class="sample-data">
+                    <p>Don't have a file? Try with our <a href="samples/sample-financial-data.csv" download>sample data</a></p>
+                </div>
+                
+                <div class="upload-progress hidden">
+                    <div class="progress-bar">
+                        <div class="progress" id="upload-progress"></div>
+                    </div>
+                    <span id="progress-text">0%</span>
+                </div>
+                
+                <div class="parse-options hidden">
+                    <h3>Data Parsing Options</h3>
+                    <div class="option-group">
+                        <label for="date-column">Date Column:</label>
+                        <select id="date-column">
+                            <option value="transaction_date">Transaction Date</option>
+                            <option value="posting_date">Posting Date</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label for="amount-column">Amount Column:</label>
+                        <select id="amount-column">
+                            <option value="amount">Amount</option>
+                            <option value="value">Value</option>
+                        </select>
+                    </div>
+                    <button id="parse-button" class="primary-button">Parse Data</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financial Coach Section -->
+        <section id="coach-section">
+            <div class="coach-container">
+                <div class="coach-header">
+                    <h2>Mindful Financial Coach</h2>
+                    <div class="coach-avatar">🤖</div>
+                </div>
+                
+                <!-- Fastbots AI Integration -->
+                <div class="fastbots-container">
+                    <iframe style="width: 100%; height: 600px; border: none; border-radius: 8px;" 
+                            src="https://app.fastbots.ai/embed/cm9o27crz02l3rik7tmdvyal3"></iframe>
+                </div>
+                
+                <div class="coach-tips">
+                    <h3>Today's Financial Tip</h3>
+                    <div class="tip-card">
+                        <p>"Review recurring subscriptions monthly. Many businesses continue paying for services they no longer use. Cancelling just two $50/month subscriptions can save $1,200 annually."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 Financial Insights Generator. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </footer>
+
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/upload.js"></script>
+    <script src="./scripts/chart.js"></script>
+    
+    <script>
+        // Prevent page reload on navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all sections and nav items
+                document.querySelectorAll('.active-section').forEach(el => {
+                    el.classList.remove('active-section');
+                });
+                document.querySelectorAll('nav a.active').forEach(el => {
+                    el.classList.remove('active');
+                });
+                
+                // Add active class to clicked nav item
+                this.classList.add('active');
+                
+                // Show the corresponding section
+                const sectionId = this.id.replace('nav-', '') + '-section';
+                document.getElementById(sectionId).classList.add('active-section');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+    </script>
+</body>
+</html>

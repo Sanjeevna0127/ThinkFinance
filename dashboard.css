@@ -1,0 +1,390 @@
+/* Dashboard Styles */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.date-filter select {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--light-gray);
+    background-color: white;
+    font-family: inherit;
+}
+
+.metrics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.metric-change {
+    font-size: 0.9rem;
+}
+
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.chart-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    height: 300px;
+}
+
+.anomaly-section {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}
+
+.heatmap-container {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.heatmap {
+    flex: 1;
+    height: 200px;
+    background: linear-gradient(90deg, #f8f9fa, #4361ee);
+    border-radius: var(--border-radius);
+}
+
+.heatmap-legend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.legend-gradient {
+    width: 30px;
+    height: 150px;
+    background: linear-gradient(to top, #f8f9fa, #4361ee);
+    border-radius: var(--border-radius);
+}
+
+.insights-section {
+    margin-bottom: 2rem;
+}
+
+.insights-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.insight-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    gap: 1rem;
+}
+
+.insight-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.insight-content h4 {
+    margin-bottom: 0.5rem;
+}
+
+.insight-content p {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    margin-bottom: 0.5rem;
+}
+
+.gamification-section {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.badges-container {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.3;
+}
+
+.badge.earned {
+    opacity: 1;
+}
+
+.badge-icon {
+    font-size: 2rem;
+    background-color: var(--light-gray);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge.earned .badge-icon {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Upload Section Styles */
+.upload-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.upload-area {
+    border: 2px dashed var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    transition: var(--transition);
+    position: relative;
+}
+
+.upload-area:hover {
+    border-color: var(--primary-color);
+}
+
+.upload-icon img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.browse-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+    transition: var(--transition);
+}
+
+.browse-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.file-requirements {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+.sample-data {
+    margin: 1rem 0;
+}
+
+.sample-data a {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.upload-progress {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--light-gray);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.parse-options {
+    text-align: left;
+    margin-top: 2rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.option-group {
+    margin-bottom: 1rem;
+}
+
+.option-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.option-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--light-gray);
+    font-family: inherit;
+}
+
+/* Financial Coach Styles */
+.coach-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.coach-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.coach-avatar {
+    font-size: 3rem;
+}
+
+.chat-container {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+}
+
+.message {
+    margin-bottom: 1rem;
+    display: flex;
+}
+
+.message.coach {
+    justify-content: flex-start;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message-content {
+    max-width: 70%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+}
+
+.message.coach .message-content {
+    background-color: white;
+}
+
+.message.user .message-content {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.quick-questions {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.quick-question {
+    background-color: var(--light-gray);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.quick-question:hover {
+    background-color: var(--gray-color);
+    color: white;
+}
+
+.chat-input {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--light-gray);
+    font-family: inherit;
+}
+
+.chat-input button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0 1.5rem;
+    border-radius: var(--border-radius);
+}
+
+.coach-tips {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.tip-card {
+    background-color: var(--light-gray);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+}
